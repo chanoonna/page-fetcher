@@ -23,7 +23,7 @@ const getInput = function(text, data, callback) {
   });
 };
 
-const fileExsit = function(answer, data) {
+const fileExist = function(answer, data) {
   if (answer === 'y') {
     downloadFile(data, "w");
   } else {
@@ -48,7 +48,7 @@ const downloadFile = function(data, filemode) {
     if (err) {
       if (err.code === "EEXIST") {
         console.log("File already exsit.");
-        getInput("Do you want to overwrite it? (y/n): ", data, fileExsit);
+        getInput("Do you want to overwrite it? (y/n): ", data, fileExist);
       } else if (err.code === "ENOENT") {
         console.log("File path is invalid");
         getInput("New path (.exit to quite): ", data, invalidPath);
